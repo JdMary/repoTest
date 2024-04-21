@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="border" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1339.0" styleClass="app" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dealdrop.controller.MainPageController">
+   <top>
+      <VBox fx:id="topnav" prefHeight="67.0" prefWidth="1339.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="66.0" prefWidth="1339.0" spacing="3.0" styleClass="navbar">
+               <children>
+                  <HBox prefHeight="91.0" prefWidth="191.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="183.0" text="Deal Drop">
+                           <font>
+                              <Font name="Rockwell" size="18.0" />
+                           </font>
+                        </Label>
+                        <Separator maxHeight="-Infinity" maxWidth="-Infinity" orientation="VERTICAL" prefHeight="200.0" prefWidth="0.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="77.0" prefWidth="855.0" spacing="25.0" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Separator orientation="VERTICAL" prefHeight="200.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <Separator prefHeight="1.0" prefWidth="1619.0" styleClass="topnav" valignment="TOP" />
+         </children>
+      </VBox>
+   </top>
+   <left>
+      <AnchorPane fx:id="menu" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="184.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="menucontainer" prefHeight="725.0" prefWidth="221.0" styleClass="navbar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <VBox>
+                     <children>
+                        <HBox alignment="CENTER" onMouseClicked="#expandShrinkNavElement" onMouseEntered="#hoverIcon" onMouseExited="#unHoverIcon" spacing="10.0">
+                           <children>
+                              <VBox fx:id="iconReference" alignment="CENTER" prefHeight="50.0" prefWidth="60.0">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <children>
+                                    <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../images/icons/shipping-fast.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </VBox>
+                              <Label accessibleRole="BUTTON" prefHeight="30.0" prefWidth="100.0" text="Delivery Man">
+                                 <font>
+                                    <Font name="Rockwell" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="100.0" prefWidth="179.0" scaleY="0.0" styleClass="nav-element-content">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="25.0" right="10.0" top="2.0" />
+                           </VBox.margin></VBox>
+                     </children>
+                  </VBox>
+                  <VBox>
+                     <children>
+                        <HBox alignment="CENTER" onMouseEntered="#hoverIcon" onMouseExited="#unHoverIcon" spacing="10.0">
+                           <children>
+                              <VBox fx:id="truck2" alignment="CENTER" prefHeight="50.0" prefWidth="60.0">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <children>
+                                    <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../images/icons/shipping-fast.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </VBox>
+                              <Label accessibleRole="BUTTON" prefHeight="30.0" prefWidth="100.0" text="Delivery Man">
+                                 <font>
+                                    <Font name="Rockwell" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="100.0" prefWidth="179.0" />
+                     </children>
+                  </VBox>
+                  <VBox>
+                     <children>
+                        <HBox alignment="CENTER" onMouseEntered="#hoverIcon" onMouseExited="#unHoverIcon" spacing="10.0">
+                           <children>
+                              <VBox fx:id="truck3" alignment="CENTER" prefHeight="50.0" prefWidth="60.0">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <children>
+                                    <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../images/icons/shipping-fast.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </VBox>
+                              <Label accessibleRole="BUTTON" prefHeight="30.0" prefWidth="100.0" text="Delivery Man">
+                                 <font>
+                                    <Font name="Rockwell" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="100.0" prefWidth="179.0" />
+                     </children>
+                  </VBox>
+                  <VBox>
+                     <children>
+                        <HBox alignment="CENTER" onMouseEntered="#hoverIcon" onMouseExited="#unHoverIcon" spacing="10.0">
+                           <children>
+                              <VBox fx:id="truck4" alignment="CENTER" prefHeight="50.0" prefWidth="60.0">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <children>
+                                    <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../images/icons/shipping-fast.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </VBox>
+                              <Label accessibleRole="BUTTON" prefHeight="30.0" prefWidth="100.0" text="Delivery Man">
+                                 <font>
+                                    <Font name="Rockwell" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="100.0" prefWidth="179.0" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER">
+                     <children>
+                        <HBox alignment="CENTER" onMouseEntered="#hoverIcon" onMouseExited="#unHoverIcon" spacing="10.0">
+                           <children>
+                              <VBox fx:id="truck5" alignment="CENTER" prefHeight="50.0" prefWidth="60.0">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <children>
+                                    <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../images/icons/shipping-fast.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </VBox>
+                              <Label accessibleRole="BUTTON" prefHeight="30.0" prefWidth="100.0" text="Delivery Man">
+                                 <font>
+                                    <Font name="Rockwell" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="100.0" prefWidth="179.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <Separator layoutX="183.0" orientation="VERTICAL" prefHeight="728.0" prefWidth="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0" />
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <StackPane fx:id="content" prefHeight="722.0" prefWidth="967.0" styleClass="content" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="container" prefHeight="718.0" prefWidth="1060.0">
+               <children>
+                  <TextField layoutX="29.0" layoutY="145.0" prefHeight="25.0" prefWidth="1128.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="25.0" />
+               </children>
+            </AnchorPane>
+            <ImageView fx:id="showhidemenu" fitHeight="35.0" fitWidth="36.0" onMouseClicked="#showHideMenu" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_LEFT">
+               <image>
+                  <Image url="@../../images/icons/bars-staggered.png" />
+               </image>
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+               <StackPane.margin>
+                  <Insets left="5.0" top="5.0" />
+               </StackPane.margin>
+            </ImageView>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>
