@@ -46,7 +46,7 @@ public class SignupController implements Initializable {
 
     }
     public void signup() {
-        if(useremailTF.getText().isEmpty() || userpasswordPF.getText().isEmpty() ||
+            if(useremailTF.getText().isEmpty() || userpasswordPF.getText().isEmpty() ||
                 userfirstnameTF.getText().isEmpty() || userlastnameTF.getText().isEmpty() ||
                 userphoneTF.getText().isEmpty() ||  usercinTF.getText().isEmpty() ||
                 userdobDP.getValue()==null || useraddressTF.getText().isEmpty() || userpasswordPF.getText().isEmpty()
@@ -67,6 +67,7 @@ public class SignupController implements Initializable {
         if (userpasswordPF.getText().length() < 6) {
            Validator.alert("Password must be at least 6 caracters");
         }
+
 
         User user = new User();
         UserService userService = new UserService();
@@ -92,8 +93,15 @@ public class SignupController implements Initializable {
          user.setType("Member");
          user.setVerified(false);
          user.setPassword(userpasswordPF.getText());
-         userService.createUser(user);
-         UIManager.displayPage("signin");
+         if(userService.searchUser(user.getEmail())!=null)
+         {
+             Validator.alert("This email is already used");
+         }else
+         {
+             userService.createUser(user);
+             UIManager.displayPage("signin");
+         }
+
     }
 
     public void loadLogin(){

@@ -49,6 +49,7 @@ public class SigninController implements Initializable {
         if(user!=null) {
 
             UserSession.setSession(user);
+            System.out.println("whta"+UserSession.getSession());
             UserinfoController info=(UserinfoController) UIManager.getOuterPage("principal").getInnerPage("profile").getController();
             info.setFields();
             UIManager.displayPage("principal");

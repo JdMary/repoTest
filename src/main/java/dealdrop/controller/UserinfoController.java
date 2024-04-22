@@ -5,6 +5,7 @@ import dealdrop.entity.User;
 import dealdrop.manager.UIManager;
 import dealdrop.service.UserService;
 import dealdrop.session.UserSession;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -30,7 +31,8 @@ public class UserinfoController implements Initializable {
     @FXML
     private Button savechnagesBUTTON;
     @FXML
-    private Button backButton;
+    private Button backButton,logoutBUTTON;
+
     @FXML
     public void setFields()
     {
@@ -90,4 +92,12 @@ public class UserinfoController implements Initializable {
         }
     }
 
+    public void logout(ActionEvent actionEvent) {
+        System.out.println("session:" +UserSession.getSession());
+        UserSession.clearSession();
+        System.out.println("session:" +UserSession.getSession());
+        UIManager.displayPage("signin");
+
+
+    }
 }

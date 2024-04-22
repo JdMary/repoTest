@@ -19,7 +19,10 @@
                <children>
                   <Pane prefHeight="400.0" prefWidth="71.0">
                      <children>
-                        <AnchorPane fx:id="sideAnchorPane" prefHeight="400.0" prefWidth="146.0" styleClass="sideAnchorPane" stylesheets="@styles/style.css" />
+                        <AnchorPane fx:id="sideAnchorPane" prefHeight="400.0" prefWidth="146.0" styleClass="sideAnchorPane" stylesheets="@styles/style.css">
+                           <children>
+                              <Button fx:id="logoutBUTTON" layoutX="58.0" layoutY="39.0" mnemonicParsing="false" onAction="#logout" text="logout" />
+                           </children></AnchorPane>
                      </children>
                   </Pane>
                </children>
