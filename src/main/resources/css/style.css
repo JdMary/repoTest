@@ -1,0 +1,34 @@
+* {
+    -fx-text-fill: white;
+}
+.app{
+    -fx-background-color:rgb(21 ,23 ,32) ;
+}
+.navbar{
+    -fx-background-color: rgb(16, 17, 25);
+
+}
+.separator{
+
+    -fx-background-color: #00ffea;
+    -fx-border-width:1;
+    -fx-pref-width: 1;
+}
+.separator .line {
+
+    -fx-border-color: null ;
+}
+.center-gradiant:hover {
+    -fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , rgba(0, 255, 234, 0.11), rgb(16, 17, 25));
+}
+.nav-element-content{
+    -fx-border-color: #00ffea;
+    -fx-border-width: 0 0px 0px 1px ;
+    -fx-border-style: solid;
+}
+.topnav {
+     /* Adjust shadow color and size as needed */
+
+    -fx-effect: dropshadow(gaussian, #00FFC3 , 30, 0.6, 0, -4); /* Adjust shadow color and size as needed */
+
+}

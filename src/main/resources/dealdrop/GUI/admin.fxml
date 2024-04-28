@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="441.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dealdrop.controller.AdminController">
+<AnchorPane prefHeight="441.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminController">
    <ListView editable="true" fixedCellSize="3.0" layoutX="-3.0" layoutY="-4.0" prefHeight="441.0" prefWidth="111.0">
       <contextMenu>
          <ContextMenu>
