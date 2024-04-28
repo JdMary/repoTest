@@ -51,7 +51,16 @@ public class SigninController implements Initializable {
             UserSession.setSession(user);
             System.out.println("whta"+UserSession.getSession());
             UserinfoController info=(UserinfoController) UIManager.getOuterPage("principal").getInnerPage("profile").getController();
-            info.setFields();
+            if(user.getRoles().equals("[\"ROLE_MEMBER\"]"))
+            {
+                info.setFields();
+            }
+            if(user.getRoles().equals("[\"ROLE_ADMIN\"]"))
+            {
+                AdminController list=(AdminController) UIManager.getOuterPage("principal").getInnerPage("admin").getController();
+                list.initialize();
+                UIManager.getOuterPage("principal").swapInnerPage("admin");
+            }
             UIManager.displayPage("principal");
         }
 

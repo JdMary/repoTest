@@ -10,6 +10,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserService {
 
@@ -135,6 +137,59 @@ public class UserService {
             throw new RuntimeException(e);
         }
         return false;
+    }
+
+    public List<User> selectAllUsers() {
+        String requete = "select * from user ";
+        List<User> users = new ArrayList<>();
+        try {
+            MyDataBase connexion=MyDataBase.getInstance();
+            PreparedStatement pst = connexion.getConnection().prepareStatement(requete);
+            ResultSet resultSet = pst.executeQuery();
+
+            while (resultSet.next()) {
+
+                User user = new User();
+                user.setId(resultSet.getInt("id"));
+                user.setEmail(resultSet.getString("email"));
+                user.setRoles(resultSet.getString("roles"));
+                user.setPassword(resultSet.getString("password"));
+                user.setFirstName(resultSet.getString("first_name"));
+                user.setLastName(resultSet.getString("last_name"));
+                user.setCin(resultSet.getInt("cin"));
+                user.setAddress(resultSet.getString("adress"));
+                user.setPhone(resultSet.getInt("phone"));
+                user.setAuthCode(resultSet.getString("auth_code"));
+                user.setAuthCode(resultSet.getString("reset_token"));
+                user.setVerified(resultSet.getBoolean("is_verified"));
+                user.setBirthDate(resultSet.getDate("birth_date"));
+                user.setJoiningDate(resultSet.getDate("joining_date"));
+                user.setType(resultSet.getString("type"));
+                users.add(user);
+            }
+            return users;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+    public boolean deleteUser(String  email) {
+        String requete = "delete from user where email=?; ";
+
+        try {
+            MyDataBase connex = MyDataBase.getInstance();
+            PreparedStatement pst = connex.getConnection().prepareStatement(requete);
+            pst.setString(1, email);
+
+            System.out.println("User deletes successfully");
+            return pst.executeUpdate() == 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+
     }
 
 }

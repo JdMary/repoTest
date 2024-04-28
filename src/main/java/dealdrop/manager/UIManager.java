@@ -1,9 +1,6 @@
 package dealdrop.manager;
 
-import dealdrop.controller.MainPageController;
-import dealdrop.controller.SigninController;
-import dealdrop.controller.SignupController;
-import dealdrop.controller.UserinfoController;
+import dealdrop.controller.*;
 import dealdrop.page.InnerPage;
 import dealdrop.page.OuterPage;
 import javafx.scene.Scene;
@@ -35,10 +32,12 @@ public class UIManager {
         InnerPage<Object> content1 = new InnerPage<>("/dealdrop/GUI/signin.fxml", "signin") ;
         InnerPage<Object> content2 = new InnerPage<>("/dealdrop/GUI/signup.fxml", "signup") ;
         InnerPage<UserinfoController> userProfile=new InnerPage<>("/dealdrop/GUI/userinfo.fxml","profile");
+        InnerPage<AdminController> adminDashboard=new InnerPage<>("/dealdrop/GUI/admin.fxml","admin");
         pagePrincipal.addPage(content1,content2);
         OuterPage<SigninController> signinpage = new OuterPage<>("/dealdrop/GUI/signin.fxml","signin", " ");
         OuterPage<SignupController> signuppage = new OuterPage<>("/dealdrop/GUI/signup.fxml","signup", " ");
         pagePrincipal.addPage(userProfile);
+        pagePrincipal.addPage(adminDashboard);
         outerPages.add(pagePrincipal);
         outerPages.add(signinpage);
         outerPages.add(signuppage);
