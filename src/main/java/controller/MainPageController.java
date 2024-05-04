@@ -124,8 +124,9 @@ public class MainPageController implements Initializable {
         }
 
     }
-    public void redirectProfile(MouseEvent mouseEvent) {
+    @FXML
+    public void redirectToProfile(MouseEvent mouseEvent) {
         UIManager.getOuterPage("principal").swapInnerPage("profile");
-    }
 
+    }
 }

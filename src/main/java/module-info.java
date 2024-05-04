@@ -9,6 +9,7 @@ module com.example.dealdrop {
     requires exp4j;
     requires jbcrypt;
     requires java.sql;
+    requires java.mail;
 
     opens controller to javafx.fxml;
     exports controller;

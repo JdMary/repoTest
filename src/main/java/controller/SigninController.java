@@ -77,6 +77,6 @@ public class SigninController implements Initializable {
     }
 
     public void forgotPassword(ActionEvent actionEvent) {
-        UIManager.getOuterPage("forgotpassword");
+        UIManager.displayPage("forgotpassword");
     }
 }

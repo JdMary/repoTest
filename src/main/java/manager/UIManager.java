@@ -28,20 +28,22 @@ public class UIManager {
         return uiManager;
     }
     public static void initialize() throws IOException {
-        OuterPage<MainPageController> pagePrincipal = new OuterPage<>("/dealdrop/GUI/dealdrop-view.fxml","principal", "#layout");
+        OuterPage<MainPageController> pagePrincipal = new OuterPage<>("/dealdrop/GUI/dealdrop-view.fxml","principal", "#container");
         InnerPage<Object> content1 = new InnerPage<>("/dealdrop/GUI/content1.fxml", "content1") ;
         InnerPage<Object> content2 = new InnerPage<>("/dealdrop/GUI/content2.fxml", "content2") ;
         InnerPage<UserinfoController> userProfile=new InnerPage<>("/dealdrop/GUI/userinfo.fxml","profile");
         InnerPage<AdminController> adminDashboard=new InnerPage<>("/dealdrop/GUI/admin.fxml","admin");
         pagePrincipal.addPage(content1,content2);
-        OuterPage<SigninController> signinpage = new OuterPage<>("/dealdrop/GUI/signin.fxml","signin", " ");
-        OuterPage<SignupController> signuppage = new OuterPage<>("/dealdrop/GUI/signup.fxml","signup", " ");
+        OuterPage<SigninController> signinpage=new OuterPage<>("/dealdrop/GUI/signin.fxml","signin", " ");
+        OuterPage<SignupController> signuppage=new OuterPage<>("/dealdrop/GUI/signup.fxml","signup", " ");
+        OuterPage<ForgotPasswordController> fpass=new OuterPage<>("/dealdrop/GUI/forgotpassword.fxml","forgotpassword", " ");
         pagePrincipal.addPage(userProfile);
         pagePrincipal.addPage(adminDashboard);
         outerPages.add(pagePrincipal);
         outerPages.add(signinpage);
         outerPages.add(signuppage);
-        scene = new Scene(pagePrincipal.getRoot());
+        outerPages.add(fpass);
+        scene = new Scene(signuppage.getRoot());
         stage.setScene(scene);
     }
     public static void displayPage(String name){

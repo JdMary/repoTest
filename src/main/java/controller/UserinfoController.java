@@ -2,6 +2,7 @@ package controller;
 
 
 import entity.User;
+import javafx.scene.text.Text;
 import manager.UIManager;
 import service.UserService;
 import session.UserSession;
@@ -15,6 +16,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class UserinfoController implements Initializable {
+    @FXML
+    public Text firstnameError, lastnameError,addressError,phoneError;
     @FXML
     private TextField userfirstnameTF;
     @FXML
@@ -62,7 +65,7 @@ public class UserinfoController implements Initializable {
             if(userfirstnameTF.getText().isEmpty() || userlastnameTF.getText().isEmpty()||useraddressTF.getText().isEmpty()
             || userphoneTF.getText().isEmpty())
             {
-                Validator.alert("fields should not be blank");
+                errorMessage();
             }
             else {
                 if (userphoneTF.getText().length() != 8 || !userphoneTF.getText().matches("[0-9]+")) {
@@ -77,7 +80,9 @@ public class UserinfoController implements Initializable {
                     String phone = userphoneTF.getText();
                     int userphone = Integer.parseInt(phone);
                     user.setPhone(userphone);
-                    us.updateUser(user, user.getEmail());
+                    if(errorMessage()==true)
+                    {us.updateUser(user, user.getEmail());}
+
                 }
             }
 
@@ -94,5 +99,40 @@ public class UserinfoController implements Initializable {
         UIManager.displayPage("signin");
 
 
+    }
+    public boolean errorMessage(){
+        int error=0;
+        if(userfirstnameTF.getText()==null)
+        {
+            System.out.println("hh");
+            firstnameError.setText("You need to fill First Name Field");
+            error+=1;
+        }
+        else if(userfirstnameTF.getText() != null)
+            firstnameError.setText("");
+
+        if(userlastnameTF.getText().isEmpty())
+        {
+            lastnameError.setText("You need to fill last name field");
+            error+=1;
+        }
+        else if(!userlastnameTF.getText().isEmpty())
+            lastnameError.setText("");
+        if(useraddressTF.getText().isEmpty())
+        {
+            addressError.setText("You need to fill address field");
+            error+=1;
+        }
+        else if(!useraddressTF.getText().isEmpty())
+            addressError.setText("");
+        if(userphoneTF.getText().isEmpty())
+        {
+            phoneError.setText("You need to fill phone field");
+            error+=1;
+        }
+        else if(!userphoneTF.getText().isEmpty())
+            phoneError.setText("");
+
+        return error > 0;
     }
 }

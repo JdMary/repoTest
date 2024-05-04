@@ -78,7 +78,7 @@
                   </VBox>
                   <VBox>
                      <children>
-                        <HBox alignment="CENTER" onMouseEntered="#hoverIcon" onMouseExited="#unHoverIcon" spacing="10.0">
+                        <HBox alignment="CENTER" onMouseClicked="#redirectToProfile" onMouseEntered="#hoverIcon" onMouseExited="#unHoverIcon" spacing="10.0">
                            <children>
                               <VBox fx:id="truck2" alignment="CENTER" prefHeight="50.0" prefWidth="60.0">
                                  <HBox.margin>
@@ -92,7 +92,7 @@
                                     </ImageView>
                                  </children>
                               </VBox>
-                              <Label accessibleRole="BUTTON" prefHeight="30.0" prefWidth="100.0" text="Delivery Man">
+                              <Label accessibleRole="BUTTON" prefHeight="30.0" prefWidth="100.0" text="Profile">
                                  <font>
                                     <Font name="Rockwell" size="14.0" />
                                  </font>
@@ -189,11 +189,6 @@
    <center>
       <StackPane fx:id="content" prefHeight="722.0" prefWidth="967.0" styleClass="content" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane fx:id="container" prefHeight="718.0" prefWidth="1060.0">
-               <children>
-                  <TextField layoutX="29.0" layoutY="145.0" prefHeight="25.0" prefWidth="1128.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="25.0" />
-               </children>
-            </AnchorPane>
             <ImageView fx:id="showhidemenu" fitHeight="35.0" fitWidth="36.0" onMouseClicked="#showHideMenu" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_LEFT">
                <image>
                   <Image url="@../../images/icons/bars-staggered.png" />
@@ -205,6 +200,11 @@
                   <Insets left="5.0" top="5.0" />
                </StackPane.margin>
             </ImageView>
+            <AnchorPane fx:id="container" prefHeight="718.0" prefWidth="1060.0">
+               <children>
+                  <TextField layoutX="29.0" layoutY="145.0" prefHeight="25.0" prefWidth="1128.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="25.0" />
+               </children>
+            </AnchorPane>
          </children>
       </StackPane>
    </center>

@@ -26,6 +26,9 @@ public class NodeAnimationUtil {
     }
 
     public static void scaleX(Node node, double xScale, double duration, XScalePivot pivot, Interpolator easing){
+        ScaleTransition currentScaleTransition = (ScaleTransition) node.getProperties().get(AnimationType.SCALEX);
+        Timeline currentTranslateTransition = (Timeline) node.getProperties().get(AnimationType.TRANSLATEX);
+        if(currentScaleTransition != null || currentTranslateTransition !=null) return;
         if(duration > 0){
             ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(duration), node);
             scaleTransition.setToX(xScale);
@@ -45,7 +48,14 @@ public class NodeAnimationUtil {
             timeline.setCycleCount(Timeline.INDEFINITE);
             timeline.getKeyFrames().add(keyFrame);
 
-            scaleTransition.setOnFinished(event -> timeline.stop());
+            node.getProperties().put(AnimationType.TRANSLATEX, timeline);
+
+            scaleTransition.setOnFinished(event -> {
+                timeline.stop();
+                node.getProperties().remove(AnimationType.TRANSLATEX);
+                node.getProperties().remove(AnimationType.SCALEX);
+            });
+            node.getProperties().put(AnimationType.SCALEX, scaleTransition);
 
             scaleTransition.play();
             timeline.play();
@@ -57,6 +67,16 @@ public class NodeAnimationUtil {
             scaleTransition.play();
         }
 
+    }
+    public static void stopScaleX(Node node){
+        ScaleTransition currentScaleTransition = (ScaleTransition) node.getProperties().get(AnimationType.SCALEX);
+        Timeline currentTranslateTransition = (Timeline) node.getProperties().get(AnimationType.TRANSLATEX);
+        if(currentScaleTransition != null && currentTranslateTransition !=null) {
+            currentScaleTransition.stop();
+            currentTranslateTransition.stop();
+            node.getProperties().remove(AnimationType.TRANSLATEX);
+            node.getProperties().remove(AnimationType.SCALEX);
+        };
     }
 
     public static void scaleY(Node node, double yScale, double duration, YScalePivot pivot, Interpolator easing){
@@ -100,6 +120,16 @@ public class NodeAnimationUtil {
             scaleTransition.play();
         }
 
+    }
+    public static void stopScaleY(Node node){
+        ScaleTransition currentScaleTransition = (ScaleTransition) node.getProperties().get(AnimationType.SCALEY);
+        Timeline currentTranslateTransition = (Timeline) node.getProperties().get(AnimationType.TRANSLATEY);
+        if(currentScaleTransition != null && currentTranslateTransition !=null) {
+            currentScaleTransition.stop();
+            currentTranslateTransition.stop();
+            node.getProperties().remove(AnimationType.TRANSLATEY);
+            node.getProperties().remove(AnimationType.SCALEY);
+        };
     }
 
 
@@ -148,7 +178,9 @@ public class NodeAnimationUtil {
             RotateTransition rotateTransition = new RotateTransition(Duration.seconds(trueDuration), node);
             rotateTransition.setByAngle( degree);
             rotateTransition.setInterpolator(easing);
-
+            rotateTransition.setOnFinished(e -> {
+                node.getProperties().remove(AnimationType.ROTATE);
+            });
             node.getProperties().put(AnimationType.ROTATE, rotateTransition);
 
             if(reset != RotationReset.KEEP)
@@ -227,11 +259,11 @@ public class NodeAnimationUtil {
 
             recovery.setDuration(Duration.seconds(durations[durations.length - 1].get()));
 
-            transition.setDuration(Duration.seconds(durations[0].get()));
+            transition.setDuration(Duration.seconds(durations[0].get() / 2));
             transition.setNode(node);
             transition.setByY(- functionOutputs[0].get());
 
-            reverse.setDuration(Duration.seconds(durations[0].get()));
+            reverse.setDuration(Duration.seconds(durations[0].get() / 2));
             reverse.setNode(node);
             reverse.setByY(functionOutputs[0].get());
 
@@ -241,13 +273,12 @@ public class NodeAnimationUtil {
             });
 
             reverse.setOnFinished(e -> {
-                System.out.println(currentPoint);
                 if(currentPoint.get() < maxJumpNumber) {
                     transition.setByY(- functionOutputs[currentPoint.get()].get());
-                    transition.setDuration(Duration.seconds(durations[currentPoint.get()].get()));
+                    transition.setDuration(Duration.seconds(durations[currentPoint.get()].get() / 2));
 
                     reverse.setByY(functionOutputs[currentPoint.get()].get());
-                    reverse.setDuration(Duration.seconds(durations[currentPoint.get()].get()));
+                    reverse.setDuration(Duration.seconds(durations[currentPoint.get()].get() / 2));
 
                     transition.play();
                     node.getProperties().put(AnimationType.TRANSLATE, transition);
@@ -292,7 +323,6 @@ public class NodeAnimationUtil {
     public static void stopJumping(Node node, boolean recovery, double recoveryTime){
         TranslateTransition translateTransition = (TranslateTransition) node.getProperties().get(AnimationType.TRANSLATE);
         TranslateTransition recoveryTransition = (TranslateTransition) node.getProperties().get(AnimationType.TRANSLATE_RECOVERY);
-        AnimationStatus as = (AnimationStatus) node.getProperties().get("translateStatus");
         if(translateTransition != null){
             node.getProperties().put("translateStatus", AnimationStatus.TRANSLATE_RECOVERING);
             if(recovery){

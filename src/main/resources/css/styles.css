@@ -1,0 +1,74 @@
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+.priceText {
+    -fx-text-fill: #00ffea;
+}
+.transparent{
+    -fx-background-color: transparent;
+}
+.scroll{
+    -fx-background: rgb(21 ,23 ,32);
+}
+.card {
+    -fx-background-color: rgb(21 ,23 ,32);
+    -fx-border-color: #CCCCCC;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-padding: 10px;
+}
+.btn {
+    -fx-background-color: #00ffea;
+    -fx-text-fill:black;
+}
+.pending {
+    -fx-border-color: #fff900;
+}
+.sold {
+    -fx-border-color: #ff0000;
+}
+.approved {
+    -fx-border-color: #00ff2a;
+}
+.transparent-textarea {
+    -fx-control-inner-background: transparent;
+}
+.field {
+    -fx-border-color: #00ffea;
+    -fx-border-width: 1px;
+}
+.text-area {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .content{
+    -fx-background-color: transparent;
+}
+.checkout {
+    -fx-fill: #A3A9C1;
+}
+.formLabel {
+    -fx-text-fill : #7A809B;
+}
+.combo-box .list-view {
+    -fx-background-color: #151720FF;
+    -fx-border-color: #00ffea;
+    -fx-border-width: 1px;
+    -fx-padding: 5px;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+.combo-box .list-cell:hover {
+    -fx-background-color: rgba(211, 211, 211, 0.27); /* Set cell background color on hover */
+}
